@@ -2,6 +2,7 @@ package id.bootcamp.pembekalan2024.service;
 
 import id.bootcamp.pembekalan2024.dto.LoginDTO;
 import id.bootcamp.pembekalan2024.entities.UserEntity;
+import id.bootcamp.pembekalan2024.model.DataUser;
 import id.bootcamp.pembekalan2024.repositories.UserRepository;
 import id.bootcamp.pembekalan2024.utils.CustomException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,7 +14,7 @@ public class UserService {
     private UserRepository ur;
     public LoginDTO loginService(String username, String password) throws CustomException {
         //Memanggil Fungsi
-        UserEntity dataUser = ur.getUserByUSernameAndPassword(username, password);
+        DataUser dataUser = ur.getUserByUSernameAndPassword(username, password);
 
         if(dataUser != null) {
             LoginDTO loginDto = new LoginDTO();
