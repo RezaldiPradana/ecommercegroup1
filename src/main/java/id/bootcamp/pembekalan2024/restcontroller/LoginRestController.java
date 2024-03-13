@@ -13,21 +13,18 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/api")
 public class LoginRestController {
-
     @Autowired
     private UserService us;
-
     @PostMapping("/login")
     public Resp<LoginDTO> login(
-            @RequestParam("email") String email,
+            @RequestParam("username") String username,
             @RequestParam("password") String password
     ) {
         Resp<LoginDTO> response = new Resp<>();
         response.setCode(200);
         response.setMessage("OK");
-
         try {
-            LoginDTO loginDTO = us.loginService(email, password);
+            LoginDTO loginDTO = us.loginService(username, password);
             response.setData(loginDTO);
             return response;
         } catch (CustomException e){
@@ -36,6 +33,4 @@ public class LoginRestController {
             return response;
         }
     }
-
-
 }

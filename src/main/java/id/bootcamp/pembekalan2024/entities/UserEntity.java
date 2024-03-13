@@ -3,7 +3,7 @@ package id.bootcamp.pembekalan2024.entities;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "m_user")
+@Table(name = "user")
 public class UserEntity extends BaseProperties {
 
     @Id

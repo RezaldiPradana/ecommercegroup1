@@ -8,20 +8,12 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface UserRepository extends JpaRepository<UserEntity, Long> {
-
-    //Buat Fungsi yang mengimplementasi Query tadi
-    //Nama fungsinya : getUserByEmailAndPassword
-    //Return Value : UserEntity
-    //Parameter email dan password
     @Query(nativeQuery = true,
-            value = "select * from m_user "
-                    + "where email = :email and password = :password")
-    public UserEntity getUserByEmailAndPassword(
-            @Param("email") String email,
+            value = "select * from user_data "
+                    + "where username = :username and password = :password")
+    public UserEntity getUserByUSernameAndPassword(
+            @Param("username") String username,
             @Param("password") String password
     );
 
-    @Query(nativeQuery = true,
-            value = "select exists (select * from m_user where email ilike :email and is_delete = false)")
-    public Boolean isEmailExists(@Param("email") String email);
 }

@@ -9,21 +9,18 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class UserService {
-
     @Autowired
     private UserRepository ur;
-
-
-    public LoginDTO loginService(String email, String password) throws CustomException {
+    public LoginDTO loginService(String username, String password) throws CustomException {
         //Memanggil Fungsi
-        UserEntity dataUser = ur.getUserByEmailAndPassword(email, password);
+        UserEntity dataUser = ur.getUserByUSernameAndPassword(username, password);
 
         if(dataUser != null) {
             LoginDTO loginDto = new LoginDTO();
             loginDto.setUser_id(dataUser.getId_user());
             return loginDto;
         } else {
-            throw new CustomException(452, "Email atau Password salah!");
+            throw new CustomException(452, "Usename atau Password salah!");
         }
     }
 }
