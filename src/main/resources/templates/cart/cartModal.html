@@ -1,0 +1,16 @@
+<div th:fragment="modal-cart">
+	<div class="modal fade" id="modalCart" data-bs-backdrop="static" aria-hidden="true" tabindex="-1">
+		<div class="modal-dialog modal-lg">
+			<div class="modal-content">
+				<div th:replace="~{/cart/detailCartModal :: detail}"></div>
+			</div>
+		</div>
+	</div>
+	<div class="modal fade" id="modalLoading" data-bs-backdrop="static" aria-hidden="true" tabindex="-1">
+		<div class="modal-dialog modal-lg">
+			<div class="modal-content">
+				<div th:replace="~{/cart/loading :: loading}"></div>
+			</div>
+		</div>
+	</div>
+</div>
