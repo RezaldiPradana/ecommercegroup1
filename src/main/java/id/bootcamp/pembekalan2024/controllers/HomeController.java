@@ -13,5 +13,10 @@ public class HomeController {
 	public String loadHomePage(HttpServletRequest servlet, Model model) {
 		return "index.html";
 	}
+	
+	@RequestMapping("/product")
+	public String loadDetailProductPage() {
+		return "product/detail.html";
+	}
 
 }
