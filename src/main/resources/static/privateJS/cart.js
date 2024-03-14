@@ -1,6 +1,10 @@
 function modalCart() {
 	modal = new bootstrap.Modal($('#modalCart'));
 	modal.toggle()
+	$('#kosong').html('')
+	$('#price').html(`<h4>Total Price :</h4>
+						<h4 id="totalPrice">20000</h4>`)
+	$('#checkout').attr("disabled", false)
 	resetData()
 }
 function modalLoading(){
@@ -14,7 +18,7 @@ function modalLoading(){
 	setTimeout(kirimData, 2000);
 }
 //global variable
-const user_id = 1
+const user_id = 2
 //api
 function getAllDetailCartAPI(userId) {
 	var form = new FormData();
@@ -38,7 +42,7 @@ function resetData(){
 	let totalItem = 0
 	const res = getAllDetailCartAPI(user_id).responseText
 	const response = JSON.parse(res)
-	if(response.code == 200){
+	if(response.data.length >0){
 		const dataList = response.data
 		$('tbody').html('')
 				for (i = 0; i < dataList.length; i++) {
@@ -59,6 +63,11 @@ function resetData(){
 		}
 		$('#item').html(`${totalItem} item`)
 		$('#totalPrice').html(`Rp. ${totalPrice}`)
+	}
+	else {
+		$('#price').html('')
+		$('#kosong').html('<h2 class="text-center">Anda Belum Memilih Barang!!!</h2>')
+		$('#checkout').attr("disabled", true)
 	}
 }
 

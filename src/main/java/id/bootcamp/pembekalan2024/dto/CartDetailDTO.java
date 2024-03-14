@@ -5,5 +5,6 @@ public interface CartDetailDTO {
 	String getProduct_name();
 	Integer getQuantity();
 	Integer getPrice();
+	String getItem_code();
 	
 }

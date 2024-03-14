@@ -27,4 +27,12 @@ public class CartDetailRestController {
 		response.setData(cs.findCartDetailByUserID(user_id));
 		return response;
 	}
+	@PostMapping("/checkout")
+	public Resp<String> updateCartDetail(@RequestParam("user_id") Long user_id){
+		Resp<String> response = new Resp<>();
+		response.setCode(200);
+		response.setMessage("OK");
+		cs.reduceStock(user_id);
+		return response;
+	}
 }
