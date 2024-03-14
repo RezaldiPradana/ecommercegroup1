@@ -1,0 +1,42 @@
+<div th:fragment="detail">
+
+	<div class="modal-header">
+		<h1 id="title" class="mb-3 ms-2 modal-title text-primary">Shopping Cart</h1>
+		<h1 class="text-sm-end me-2" id="item">0 Item</h1>
+
+	</div>
+	<div class="modal-body text-secondary">
+		<div class="row">
+			<form onsubmit="return false">
+				<div class="col-md-10 offset-md-1">
+					<table class="table">
+						<thead>
+							<tr>
+								<th scope="col">Product Details</th>
+								<th scope="col">Quantity</th>
+								<th scope="col">Price</th>
+								<th scope="col">Total</th>
+							</tr>
+						</thead>
+						<tbody>
+						</tbody>
+					</table>
+					<div id="price" class="d-flex justify-content-between mt-5">
+						<h4>Total Price :</h4>
+						<h4 id="totalPrice">20000</h4>
+					</div>
+					<div id="kosong" class="text-center"></div>
+					
+					
+				</div>
+
+			</form>
+
+		</div>
+	</div>
+	<div class="modal-footer d-flex justify-content-between ">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Add Product</button>
+        <input id="checkout"  type="submit" class="btn btn-primary mb-3" value="CheckOut">
+      </div>
+
+</div>
