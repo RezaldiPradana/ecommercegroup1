@@ -27,7 +27,7 @@ public class PageController {
         if (existingUser != null && existingUser.getPassword().equals(dataUser.getPassword())) {
             session.setAttribute("loggedInUser", existingUser);
             if ("admin".equals(existingUser.getRole())) {
-                return "redirect:/stock";
+                return "redirect:/cart";
             } else {
                 return "redirect:/kasir";
             }

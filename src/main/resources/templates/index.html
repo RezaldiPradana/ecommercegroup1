@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title th:text="${title_web}">Login</title>
     <link rel="stylesheet" th:href="@{/webjars/bootstrap/5.3.2/css/bootstrap.min.css}" />
+<!--    <link rel="stylesheet" th:href="@{/bootsrap}" />-->
+
 </head>
 <body>
     <div class="container mt-5">
@@ -22,7 +24,7 @@
                         <input type="password" class="form-control" id="password" th:field="*{password}" required>
                     </div>
                     <button type="submit" class="btn btn-primary">Login</button>
-<!--                    <a class="btn btn-secondary" th:href="@{/register}">Register</a>-->
+                    <a class="btn btn-secondary" th:href="@{/register}">Register</a>
                 </form>
             </div>
         </div>
