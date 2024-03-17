@@ -27,9 +27,7 @@ public class PageController {
         if (existingUser != null && existingUser.getPassword().equals(dataUser.getPassword())) {
             session.setAttribute("loggedInUser", existingUser);
             if ("admin".equals(existingUser.getRole())) {
-                return "redirect:/cart";
-            } else {
-                return "redirect:/kasir";
+                return "redirect:/list";
             }
         }
         return "redirect:/";
@@ -53,9 +51,9 @@ public class PageController {
         return "cart_detail";
     }
 
-    @GetMapping("/cart")
+    @GetMapping("/list")
     public String cart (HttpServletRequest servlet) {
-        String title_web = "cart";
-        return "cart";
+        String title_web = "list";
+        return "list";
     }
 }

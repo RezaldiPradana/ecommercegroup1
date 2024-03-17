@@ -31,4 +31,9 @@ public interface CartDetailRepository extends JpaRepository<CartDetailEntity, Lo
 					+ "from cart c \r\n"
 					+ "where cart_detail.id_cart = c.id_cart and id_user = :User_id")
 	public void updateDataCartDetail(@Param("User_id") Long User_id);
+	@Query(nativeQuery = true,
+			value = "select count(id_cart_detail) from cart_detail\r\n"
+					+ "join cart on cart.id_cart = cart_detail.id_cart\r\n"
+					+ "where cart.id_user = :userId and cart_detail.is_delete = false")
+	public Integer getTotalItemCart(@Param("userId") Long userId);
 }
