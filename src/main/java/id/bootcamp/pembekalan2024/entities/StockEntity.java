@@ -33,6 +33,9 @@ public class StockEntity extends BaseProperties {
 	
 	@Column
 	private String image_path;
+	
+	@Column
+	private String description;
 
 	public Long getId_stock() {
 		return id_stock;
@@ -88,6 +91,14 @@ public class StockEntity extends BaseProperties {
 
 	public void setImage_path(String image_path) {
 		this.image_path = image_path;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
 	}
 	
 	
