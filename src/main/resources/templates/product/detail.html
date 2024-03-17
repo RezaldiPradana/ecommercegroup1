@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+	<title>Detail Product</title>
+
+	<link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+	<link href="/fontawesome/css/all.min.css" rel="stylesheet" />
+	<link href="/jqueryui/jquery-ui.min.css" rel="stylesheet" />
+
+	<script src="/js/jquery-3.7.1.min.js"></script>
+	<script src="/bootstrap/js/bootstrap.bundle.min.js"></script>
+	<script src="/jqueryui/jquery-ui.min.js"></script>
+</head>
+
+<body>
+	<header th:replace="/layouts/header.html :: header"></header>
+	<main style="min-height: 550px;" class="container mt-3">
+		<div id="product-detail" class="card mb-3">
+			<div class="row g-0">
+				<div class="col-md-4">
+					<img src="..." class="img-fluid rounded-start" alt="...">
+				</div>
+				<div class="col-md-8">
+					<div class="card-body">
+						<h5 class="card-title">Card title</h5>
+						<p class="card-text">This is a wider card with supporting text below as a natural lead-in to
+							additional content. This content is a little bit longer.</p>
+						<p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!--<h5>Other Product</h5>-->
+		
+	</main>
+
+
+	<footer th:replace="/layouts/footer.html :: footer"></footer>
+
+	<script src="/customjs/detail.js"></script>
+</body>
+
+</html>
