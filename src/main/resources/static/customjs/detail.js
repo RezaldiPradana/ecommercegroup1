@@ -32,6 +32,7 @@ function showProductDetail() {
 						<h5 class="card-text">Harga : ${formattedPrice}</h5>
 						<p class="card-text mb-0">Kode : ${data.item_code}</p>
 						<p class="card-text mb-0">Stok : ${data.quantity}</p>
+						<p class="card-text mb-0">Deskripsi : ${data.description}</p>
 						<hr>
 						<div class="input-group mb-3 w-25">
 						  <button id="minus-btn" class="btn btn-secondary" type="button">-</button>
