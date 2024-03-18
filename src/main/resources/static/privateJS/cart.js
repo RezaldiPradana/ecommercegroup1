@@ -7,7 +7,7 @@ function modalCart() {
 	$('#checkout').attr("disabled", false)
 	resetData()
 }
-function modalLoading(){
+function modalLoading() {
 	modal.toggle()
 	modal = new bootstrap.Modal($('#modalLoading'));
 	modal.toggle()
@@ -18,7 +18,7 @@ function modalLoading(){
 	setTimeout(kirimData, 2000);
 }
 //global variable
-const user_id = 2
+const user_id = 1
 //api
 function getAllDetailCartAPI(userId) {
 	var form = new FormData();
@@ -32,34 +32,48 @@ function getAllDetailCartAPI(userId) {
 		"mimeType": "multipart/form-data",
 		"contentType": false,
 		"data": form,
-		async : false
+		async: false
 	};
 
 	return $.ajax(settings)
 }
-function resetData(){
+function checkoutAPI(respBody) {
+	var settings = {
+		"url": "/api/cart_detail/checkout",
+		"method": "POST",
+		"timeout": 0,
+		"headers": {
+			"Content-Type": "application/json"
+		},
+		"data": respBody,
+		async: false
+	};
+
+	return $.ajax(settings)
+}
+function resetData() {
 	let totalPrice = 0
 	let totalItem = 0
 	const res = getAllDetailCartAPI(user_id).responseText
 	const response = JSON.parse(res)
-	if(response.data.length >0){
+	if (response.data.length > 0) {
 		const dataList = response.data
 		$('tbody').html('')
-				for (i = 0; i < dataList.length; i++) {
-					const data = dataList[i]
-					let total = data.price*data.quantity
-					totalPrice +=total
-					totalItem +=1
-					$('tbody').append(
-					`
+		for (i = 0; i < dataList.length; i++) {
+			const data = dataList[i]
+			let total = data.price * data.quantity
+			totalPrice += total
+			totalItem += 1
+			$('tbody').append(
+				`
 					<tr>
 						<td>${data.product_name}</td>
-						<td>${data.quantity}</td>
+						<td id="qttAkhir">${data.quantity}</td>
 						<td>${data.price}</td>
 						<td>${total}</td>
 					</tr>
 					`
-					)
+			)
 		}
 		$('#item').html(`${totalItem} item`)
 		$('#totalPrice').html(`Rp. ${totalPrice}`)
@@ -72,22 +86,42 @@ function resetData(){
 }
 
 $('#checkout').click(function() {
-	const data = []
-	$('#myTable tbody tr').each(function(index, tr) {
-      data.push($(tr).find('td').text());
-    });
-    console.log(data)
-	//modalLoading()
+
+	modalLoading()
 })
 
-function kirimData(){
+function kirimData() {
 	$('#title-loading').html('<i class="fa-solid fa-circle-check fa-6x"></i>')
 	$('#centang').html('SUKSES')
 	$('#circle-spinner').html('<h4>Pembelian Sudah Berhasil Dilakukan!!!</h4>')
 	$('#button-close').html('<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>')
-	
-	/*const data = []
+
+
+	//send data
+	const dataQtt = []
 	$('#myTable tbody tr').each(function(index, tr) {
-      columnData.push($(tr).find('td').text());
-    });*/
+		let qttAkhir = parseInt($(tr).find('#qttAkhir').text())
+		dataQtt.push(qttAkhir);
+	});
+	/*console.log(dataQtt)*/
+	const res = getAllDetailCartAPI(user_id).responseText
+	const response = JSON.parse(res)
+	/*console.log(response.data)*/
+
+	const dataAkhir = []
+	for (i = 0; i < response.data.length; i++) {
+		let responseData = response.data[i]
+		/*console.log(responseData)*/
+		const data = {
+			"id_cart_detail": responseData.id_cart_detail,
+			"id_user": user_id,
+			"item_code": responseData.item_code,
+			"quantity": dataQtt[i]
+		}
+		dataAkhir.push(data)
+	}
+	const resData = JSON.stringify(dataAkhir)
+	//console.log(resData)
+	checkoutAPI(resData)
+	/*console.log(dataAkhir)*/
 }

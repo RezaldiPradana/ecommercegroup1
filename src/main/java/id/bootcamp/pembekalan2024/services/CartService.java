@@ -31,6 +31,7 @@ public class CartService {
 			CartDetailEntity oneCart = cdr.getReferenceById(cart.getId_cart_detail());
 			oneCart.setDeleted_by(cart.getId_user());
 			oneCart.setDeleted_on(new Date());
+			oneCart.setIs_delete(true);
 			cdr.save(oneCart);
 			Integer stockDibeli = cart.getQuantity();
 			StockEntity stock = sr.getAllEntityByItemCode(cart.getItem_code());
