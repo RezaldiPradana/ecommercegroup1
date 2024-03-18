@@ -72,7 +72,12 @@ function resetData(){
 }
 
 $('#checkout').click(function() {
-	modalLoading()
+	const data = []
+	$('#myTable tbody tr').each(function(index, tr) {
+      data.push($(tr).find('td').text());
+    });
+    console.log(data)
+	//modalLoading()
 })
 
 function kirimData(){
@@ -80,4 +85,9 @@ function kirimData(){
 	$('#centang').html('SUKSES')
 	$('#circle-spinner').html('<h4>Pembelian Sudah Berhasil Dilakukan!!!</h4>')
 	$('#button-close').html('<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>')
+	
+	/*const data = []
+	$('#myTable tbody tr').each(function(index, tr) {
+      columnData.push($(tr).find('td').text());
+    });*/
 }

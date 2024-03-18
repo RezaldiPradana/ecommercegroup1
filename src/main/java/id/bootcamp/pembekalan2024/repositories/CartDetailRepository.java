@@ -16,7 +16,7 @@ import jakarta.transaction.Transactional;
 public interface CartDetailRepository extends JpaRepository<CartDetailEntity, Long> {
 
 	@Query(nativeQuery = true,
-			value = "select product_name, cd.quantity, s.price, cd.item_code\r\n"
+			value = "select id_cart_detail, product_name, cd.quantity, s.price, cd.item_code\r\n"
 					+ "from cart_detail cd\r\n"
 					+ "join cart c on c.id_cart = cd.id_cart\r\n"
 					+ "join stock s on s.item_code = cd.item_code\r\n"
