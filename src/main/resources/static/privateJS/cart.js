@@ -17,6 +17,11 @@ function modalLoading() {
 	$('#centang').html('')
 	setTimeout(kirimData, 2000);
 }
+
+function modalClose(){
+	modal.toggle()
+	location.reload();
+}
 //global variable
 const user_id = userIdGlobal
 //api
@@ -94,8 +99,7 @@ function kirimData() {
 	$('#title-loading').html('<i class="fa-solid fa-circle-check fa-6x"></i>')
 	$('#centang').html('SUKSES')
 	$('#circle-spinner').html('<h4>Pembelian Sudah Berhasil Dilakukan!!!</h4>')
-	$('#button-close').html('<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>')
-
+    $('#button-close').html('<button type="button" class="btn btn-secondary" onclick="modalClose()">Close</button>')
 
 	//send data
 	const dataQtt = []

@@ -65,7 +65,7 @@ public class PageController {
     @GetMapping("/cart_detail")
     public String cart_detail(HttpServletRequest servlet) {
         String title_web = "cart_detail";
-        return "cart_detail";
+        return "cart/detailCartModal.html";
     }
 
     @GetMapping("/list")
