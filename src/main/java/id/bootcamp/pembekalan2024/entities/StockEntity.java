@@ -33,7 +33,7 @@ public class StockEntity extends BaseProperties {
 	
 	@Column
 	private String image_path;
-
+	
 	@Column
 	private String description;
 
@@ -93,7 +93,6 @@ public class StockEntity extends BaseProperties {
 		this.image_path = image_path;
 	}
 
-
 	public String getDescription() {
 		return description;
 	}
@@ -101,6 +100,7 @@ public class StockEntity extends BaseProperties {
 	public void setDescription(String description) {
 		this.description = description;
 	}
+	
 	
 	
 }

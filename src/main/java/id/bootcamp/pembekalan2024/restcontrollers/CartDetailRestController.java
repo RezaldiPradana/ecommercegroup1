@@ -4,11 +4,13 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import id.bootcamp.pembekalan2024.dto.CartDetailDTO;
+import id.bootcamp.pembekalan2024.dto.CheckoutDTO;
 import id.bootcamp.pembekalan2024.services.CartService;
 import id.bootcamp.pembekalan2024.utils.Resp;
 
@@ -28,11 +30,11 @@ public class CartDetailRestController {
 		return response;
 	}
 	@PostMapping("/checkout")
-	public Resp<String> updateCartDetail(@RequestParam("user_id") Long user_id){
+	public Resp<String> updateCartDetail(@RequestBody List<CheckoutDTO> cart){
 		Resp<String> response = new Resp<>();
 		response.setCode(200);
 		response.setMessage("OK");
-		cs.reduceStock(user_id);
+		cs.reduceStock(cart);
 		return response;
 	}
 }

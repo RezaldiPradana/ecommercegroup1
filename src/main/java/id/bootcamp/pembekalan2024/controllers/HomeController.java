@@ -9,7 +9,7 @@ import jakarta.servlet.http.HttpServletRequest;
 @Controller
 public class HomeController {
 	
-	@RequestMapping("")
+	@RequestMapping("/")
 	public String loadHomePage(HttpServletRequest servlet, Model model) {
 		return "index.html";
 	}
