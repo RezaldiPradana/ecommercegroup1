@@ -5,6 +5,7 @@ function modalCart() {
 	$('#price').html(`<h4>Total Price :</h4>
 						<h4 id="totalPrice">20000</h4>`)
 	$('#checkout').attr("disabled", false)
+	$('tbody').html('')
 	resetData()
 }
 function modalLoading() {
@@ -82,6 +83,7 @@ function resetData() {
 		$('#price').html('')
 		$('#kosong').html('<h2 class="text-center">Anda Belum Memilih Barang!!!</h2>')
 		$('#checkout').attr("disabled", true)
+		$('#item').html(`0 item`)
 	}
 }
 
