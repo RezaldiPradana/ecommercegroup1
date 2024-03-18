@@ -18,7 +18,7 @@ function modalLoading() {
 	setTimeout(kirimData, 2000);
 }
 //global variable
-const user_id = 1
+const user_id = userIdGlobal
 //api
 function getAllDetailCartAPI(userId) {
 	var form = new FormData();
