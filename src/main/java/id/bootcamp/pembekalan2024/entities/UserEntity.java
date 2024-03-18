@@ -1,7 +1,10 @@
+/*
 package id.bootcamp.pembekalan2024.entities;
 
 import jakarta.persistence.*;
 
+
+Tidak Dipakai
 @Entity
 @Table(name = "user")
 public class UserEntity extends BaseProperties {
@@ -54,3 +57,4 @@ public class UserEntity extends BaseProperties {
 
 
 }
+*/

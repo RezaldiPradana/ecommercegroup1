@@ -5,12 +5,12 @@ import lombok.Data;
 
 @Data
 @Entity
-@Table(name = "user")
+@Table(name = "user_data")
 public class DataUser {
     @Id
     @Column(nullable = false)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id_user;
+    private Long id;
 
     @Column(length = 100)
     private String username;
@@ -19,5 +19,14 @@ public class DataUser {
     private String password;
 
     @Column
-    private String role;
+    private String email;
+
+    @Column
+    private String nama_lengkap;
+
+    @Column
+    private String alamat;
+
+    @Column
+    private String no_telp;
 }

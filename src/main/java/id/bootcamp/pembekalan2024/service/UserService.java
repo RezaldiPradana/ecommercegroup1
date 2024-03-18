@@ -1,7 +1,6 @@
 package id.bootcamp.pembekalan2024.service;
 
 import id.bootcamp.pembekalan2024.dto.LoginDTO;
-import id.bootcamp.pembekalan2024.entities.UserEntity;
 import id.bootcamp.pembekalan2024.model.DataUser;
 import id.bootcamp.pembekalan2024.repositories.UserRepository;
 import id.bootcamp.pembekalan2024.utils.CustomException;
@@ -18,7 +17,7 @@ public class UserService {
 
         if(dataUser != null) {
             LoginDTO loginDto = new LoginDTO();
-            loginDto.setUser_id(dataUser.getId_user());
+            loginDto.setUser_id(dataUser.getId());
             return loginDto;
         } else {
             throw new CustomException(452, "Usename atau Password salah!");

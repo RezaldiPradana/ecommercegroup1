@@ -16,70 +16,59 @@ public class CustomerEntity extends BaseProperties {
 	@Id
 	@Column(nullable = false)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id_customer;
-	
+	private Long id;
+
 	@Column
-	private Long id_user;
-	
+	private String email;
+
 	@Column(length = 255)
-	private String fullname;
-	
+	private String nama_lengkap;
+
 	@Column
-	private Date birth_date;
-	
-	@Column
-	private String address;
-	
+	private String alamat;
+
 	@Column(length = 15)
-	private String phone_number;
-
-	public Long getId_customer() {
-		return id_customer;
-	}
-
-	public void setId_customer(Long id_customer) {
-		this.id_customer = id_customer;
-	}
+	private String no_telp;
 
 	public Long getId_user() {
-		return id_user;
+		return id;
 	}
 
-	public void setId_user(Long id_user) {
-		this.id_user = id_user;
+	public void setId_user(Long id) {
+		this.id = id;
 	}
 
-	public String getFullname() {
-		return fullname;
+	public String getEmail() {
+		return email;
 	}
 
-	public void setFullname(String fullname) {
-		this.fullname = fullname;
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
-	public Date getBirth_date() {
-		return birth_date;
+	public String getNama_lengkap() {
+		return nama_lengkap;
 	}
 
-	public void setBirth_date(Date birth_date) {
-		this.birth_date = birth_date;
+	public void setNama_lengkap(String nama) {
+		this.nama_lengkap = nama_lengkap;
 	}
 
-	public String getAddress() {
-		return address;
+	public String getAlamat() {
+		return alamat;
 	}
 
-	public void setAddress(String address) {
-		this.address = address;
+	public void setAlamat(String alamat) {
+		this.alamat = alamat;
 	}
 
-	public String getPhone_number() {
-		return phone_number;
+	public String getNo_telp() {
+		return no_telp;
 	}
 
-	public void setPhone_number(String phone_number) {
-		this.phone_number = phone_number;
+	public void setNo_telp(String no_telp) {
+		this.no_telp = no_telp;
 	}
-	
-	
+
+
 }
