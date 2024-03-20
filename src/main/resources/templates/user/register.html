@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+	<title>Home</title>
+
+	<link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+	<link href="/fontawesome/css/all.min.css" rel="stylesheet" />
+	<link href="/jqueryui/jquery-ui.min.css" rel="stylesheet" />
+	<link href="/privateCSS/cart.css" rel="stylesheet" />
+
+
+	<script src="/js/jquery-3.7.1.min.js"></script>
+	<script src="/bootstrap/js/bootstrap.bundle.min.js"></script>
+</head>
+
+<body>
+
+
+	<header th:replace="/layouts/header.html :: header"></header>
+	<main style="min-height: 550px;" class="container">
+		<div class="justify-content-center m-5">
+			<div class="d-flex" role="search">
+				<input id="input-search" class="form-control me-2" type="search" placeholder="Search"
+					aria-label="Search">
+				<button id="submit-search" class="btn btn-secondary"><i
+						class="fa-solid fa-magnifying-glass"></i></button>
+			</div>
+		</div>
+		<div id="row-product" class="row row-cols-1 row-cols-md-3 g-4 mb-3">
+			<div class="col">
+				<div class="card text-center">
+					<img src="https://daddybenwear.com/wp-content/uploads/2023/11/WhatsApp-Image-2023-11-19-at-11.58.32-2.jpeg"
+						class="card-img-top" alt="...">
+					<div class="card-body">
+						<h5 class="card-title">Card title</h5>
+						<p class="card-text">This </p>
+						<div class="row">
+							<div class="col-6">
+								<a href="#" class="btn btn-secondary w-100">Detail</a>
+							</div>
+							<div class="col-6">
+								<a href="#" class="btn btn-dark w-100">Buy</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<nav aria-label="Page navigation example">
+			<ul id="pagination-container" class="pagination justify-content-center">
+				<li class="page-item disabled">
+					<a class="page-link">Previous</a>
+				</li>
+				<li class="page-item"><a class="page-link" href="#">1</a></li>
+				<li class="page-item"><a class="page-link" href="#">2</a></li>
+				<li class="page-item"><a class="page-link" href="#">3</a></li>
+				<li class="page-item">
+					<a class="page-link" href="#">Next</a>
+				</li>
+			</ul>
+		</nav>
+	</main>
+
+
+	<footer th:replace="/layouts/footer.html :: footer"></footer>
+
+
+	<!-- modal cart -->
+	<div th:replace="~{/cart/cartModal.html :: modal-cart}"></div>
+	<!--tambahan js cart-->
+	
+	<script src="/customjs/home.js"></script>
+	<script src="/customjs/addToCart.js"></script>
+	<script src="/privateJS/cart.js"></script>
+
+</body>
+
+</html>
