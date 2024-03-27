@@ -39,5 +39,20 @@ public interface CartDetailRepository extends JpaRepository<CartDetailEntity, Lo
 					+ "join cart on cart.id_cart = cart_detail.id_cart\r\n"
 					+ "where cart.id_user = :userId and cart_detail.is_delete = false")
 	public Integer getTotalItemCart(@Param("userId") Long userId);
+	
+	@Query(nativeQuery = true,
+			value = "select exists\r\n"
+					+ "(select * from cart_detail cd\r\n"
+					+ " join cart c on cd.id_cart = c.id_cart\r\n"
+					+ " where id_user = :userId and item_code = :itemKode\r\n"
+					+ " and cd.is_delete = false)")
+	public Boolean isItemDetailExists(@Param("userId") Long userId, @Param("itemKode") String itemKode);
+	
+	@Query(nativeQuery = true,
+			value = "select id_cart_detail\r\n"
+					+ "from cart_detail cd join cart c\r\n"
+					+ "on cd.id_cart = c.id_cart\r\n"
+					+ "where item_code = :itemKode and id_user = :userId and cd.is_delete = false")
+	public Long getIdCartDetailFromKodeItem(@Param("userId") Long userId, @Param("itemKode") String itemKode);
 }
 

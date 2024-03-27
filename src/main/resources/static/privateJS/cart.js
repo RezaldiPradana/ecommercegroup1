@@ -69,19 +69,22 @@ function resetData() {
 			let total = data.price * data.quantity
 			totalPrice += total
 			totalItem += 1
+			const formattedPrice = new Intl.NumberFormat('id-ID', {minimumFractionDigits: 0, style: 'currency', currency: 'IDR'}).format(data.price);
+			const formattedTotal = new Intl.NumberFormat('id-ID', {minimumFractionDigits: 0, style: 'currency', currency: 'IDR'}).format(total);
 			$('tbody').append(
 				`
 					<tr>
 						<td>${data.product_name}</td>
 						<td id="qttAkhir">${data.quantity}</td>
-						<td>${data.price}</td>
-						<td>${total}</td>
+						<td>${formattedPrice}</td>
+						<td>${formattedTotal}</td>
 					</tr>
 					`
 			)
 		}
+		const formattedTotalPrice = new Intl.NumberFormat('id-ID', {minimumFractionDigits: 0, style: 'currency', currency: 'IDR'}).format(totalPrice);
 		$('#item').html(`${totalItem} item`)
-		$('#totalPrice').html(`Rp. ${totalPrice}`)
+		$('#totalPrice').html(`${formattedTotalPrice}`)
 	}
 	else {
 		$('#price').html('')

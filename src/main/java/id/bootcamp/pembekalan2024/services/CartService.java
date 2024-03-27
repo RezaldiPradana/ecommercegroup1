@@ -78,15 +78,29 @@ public class CartService {
 	}
 	
 	public void insertProductToCart(PostDetailCartDTO detailDto) {
-		CartDetailEntity detailEntity = new CartDetailEntity();
-		detailEntity.setId_cart(detailDto.getId_cart());
-		detailEntity.setItem_code(detailDto.getItem_code());
-		detailEntity.setPrice(detailDto.getPrice());
-		detailEntity.setQuantity(detailDto.getQuantity());
-		detailEntity.setCreated_by(detailDto.getId_user());
-		detailEntity.setCreated_on(new Date());
+		Boolean isItemExists = cdr.isItemDetailExists(detailDto.getId_user(), detailDto.getItem_code());
+		if(isItemExists) {
+			Integer qttNew = detailDto.getQuantity();
+			Long idItemDetail = cdr.getIdCartDetailFromKodeItem(detailDto.getId_user(), detailDto.getItem_code());
+			CartDetailEntity detailEntity = cdr.getReferenceById(idItemDetail);
+			Integer qttNow = qttNew + detailEntity.getQuantity();
+			detailEntity.setModified_by(idItemDetail);
+			detailEntity.setModified_on(new Date());
+			detailEntity.setQuantity(qttNow);
+			cdr.save(detailEntity);
+			
+		}else {
+			CartDetailEntity detailEntity = new CartDetailEntity();
+			detailEntity.setId_cart(detailDto.getId_cart());
+			detailEntity.setItem_code(detailDto.getItem_code());
+			detailEntity.setPrice(detailDto.getPrice());
+			detailEntity.setQuantity(detailDto.getQuantity());
+			detailEntity.setCreated_by(detailDto.getId_user());
+			detailEntity.setCreated_on(new Date());
+			
+			cdr.save(detailEntity);
+		}
 		
-		cdr.save(detailEntity);
 	}
 	
 

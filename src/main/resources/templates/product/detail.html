@@ -11,6 +11,7 @@
 	<link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
 	<link href="/fontawesome/css/all.min.css" rel="stylesheet" />
 	<link href="/jqueryui/jquery-ui.min.css" rel="stylesheet" />
+	<link href="/privateCSS/cart.css" rel="stylesheet" />
 
 	<script src="/js/jquery-3.7.1.min.js"></script>
 	<script src="/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -43,7 +44,12 @@
 
 	<footer th:replace="/layouts/footer.html :: footer"></footer>
 
+	<!-- modal cart -->
+	<div th:replace="~{/cart/cartModal.html :: modal-cart}"></div>
+	<!--tambahan js cart-->
+	
 	<script src="/customjs/detail.js"></script>
+	<script src="/privateJS/cart.js"></script>
 </body>
 
 </html>
